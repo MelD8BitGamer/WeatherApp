@@ -1,0 +1,8 @@
+There is a string manipulation
+
+var timezone = "America/New_York"
+you gotta get rid of 3 things so replace occurances of the _ with an empty space
+timezone.replaceOccurancesOf(or:   , with:   ) = "America New York" maybe get rid of this
+then you can convert it to an array
+string.separately(or: " / ") = [America, New York]
+then return .last
