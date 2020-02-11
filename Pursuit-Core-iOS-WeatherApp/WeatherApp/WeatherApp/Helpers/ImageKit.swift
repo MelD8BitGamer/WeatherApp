@@ -40,57 +40,58 @@ extension UIImageView {
     let image = UIImage(data: data)
     return image
   }
-  
-  // instance method on a UIImageView gets and image from the caches directory or the netowrk
-  public func getImage(with urlString: String,
-                       writeTo directory: Directory = .cachesDirectory,
-                       completion: @escaping (Result<UIImage, AppError>) -> ()) {
-    
-    // The UIActivityIndicatorView is used to indicate to the user that a download is in progress
-    let activityIndicator = UIActivityIndicatorView(style: .large)
-    activityIndicator.color = UIColor.systemOrange
-    activityIndicator.startAnimating() // it's hidden until we explicitly start animating
-    
-    addSubview(activityIndicator) // we add the indicattor as a subview of the image view
-    
-    activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-                                 activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
-    ])
-    
-    guard let url = URL(string: urlString) else {
-      completion(.failure(.badURL(urlString)))
-      activityIndicator.stopAnimating()
-      return
-    }
-    
-    // check the cache
-    let filename = url.lastPathComponent
-    if let cachedImage = cachedImage(for: filename, directory: directory) {
-      completion(.success(cachedImage))
-      activityIndicator.stopAnimating()
-      return
-    }
-    
-    let request = URLRequest(url: url)
-    
-    NetworkHelper.shared.performDataTask(with: request) { [weak activityIndicator, weak self] (result) in
-      DispatchQueue.main.async {
-        activityIndicator?.stopAnimating()
-      }
-      switch result {
-      case .failure(let appError):
-        completion(.failure(.networkClientError(appError)))
-      case .success(let data):
-        if let image = UIImage(data: data) {
-          // cache image
-          // get the last path component of the url, we will use this as the filename e.g someImage.jpg
-          let lastComponent = url.lastPathComponent
-          self?.write(to: directory, image: image, path: lastComponent)
-          
-          completion(.success(image))
-        }
-      }
-    }
-  }
+  //MARK: This is producing an error  Main Thread Checker: UI API called on a background thread: -[UIActivityIndicatorView initWithActivityIndicatorStyle:]
+//  // instance method on a UIImageView gets and image from the caches directory or the netowrk
+//  public func getImage(with urlString: String,
+//                       writeTo directory: Directory = .cachesDirectory,
+//                       completion: @escaping (Result<UIImage, AppError>) -> ()) {
+//
+//    // The UIActivityIndicatorView is used to indicate to the user that a download is in progress
+//    let activityIndicator = UIActivityIndicatorView(style: .large)
+//    activityIndicator.color = UIColor.systemOrange
+//    activityIndicator.startAnimating() // it's hidden until we explicitly start animating
+//
+//    addSubview(activityIndicator) // we add the indicattor as a subview of the image view
+//
+//    activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+//    NSLayoutConstraint.activate([activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                                 activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+//    ])
+//
+//    guard let url = URL(string: urlString) else {
+//      completion(.failure(.badURL(urlString)))
+//      activityIndicator.stopAnimating()
+//      return
+//    }
+//
+//    // check the cache
+//    let filename = url.lastPathComponent
+//    if let cachedImage = cachedImage(for: filename, directory: directory) {
+//      completion(.success(cachedImage))
+//      activityIndicator.stopAnimating()
+//      return
+//    }
+//
+//    let request = URLRequest(url: url)
+//
+//    NetworkHelper.shared.performDataTask(with: request) { [weak activityIndicator, weak self] (result) in
+//      DispatchQueue.main.async {
+//        activityIndicator?.stopAnimating()
+//      }
+//      switch result {
+//      case .failure(let appError):
+//        completion(.failure(.networkClientError(appError)))
+//      case .success(let data):
+//        if let image = UIImage(data: data) {
+//          // cache image
+//          // get the last path component of the url, we will use this as the filename e.g someImage.jpg
+//          let lastComponent = url.lastPathComponent
+//          self?.write(to: directory, image: image, path: lastComponent)
+//
+//          completion(.success(image))
+//        }
+//      }
+//    }
+//  }
+//}
 }

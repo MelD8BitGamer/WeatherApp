@@ -24,19 +24,19 @@ class DetailedView: UIView {
     public lazy var cityImageView: UIImageView = {
         let cityImage = UIImageView()
         cityImage.backgroundColor = .systemPink
-       // cityImage.image = UIImage(named: "")//TODO: call this in the view controller with the instance
+        // cityImage.image = UIImage(named: "")//TODO: call this in the view controller with the instance
         return cityImage
     }()
     
     public lazy var summaryDetailLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.backgroundColor = .systemTeal
-       // label.text =
+        // label.text =
         return label
     }()
     
     public lazy var highTempLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.backgroundColor = .systemPink
         //label.text
         return label
@@ -126,7 +126,7 @@ class DetailedView: UIView {
             cityImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             cityImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             cityImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3),
-            cityImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9)
+//            cityImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9)
             
         ])
     }
@@ -149,32 +149,36 @@ class DetailedView: UIView {
         highTempLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        
-        highTempLabel.topAnchor.constraint(equalTo: summaryDetailLabel.bottomAnchor, constant: 20),
-               highTempLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-               highTempLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-               //this makes the height equal to the currentWeather Label
-               highTempLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
+            
+            highTempLabel.topAnchor.constraint(equalTo: summaryDetailLabel.bottomAnchor, constant: 20),
+            highTempLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            highTempLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            //this makes the height equal to the currentWeather Label
+            highTempLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
         ])
     }
     
     private func setUpLowTempLabel() {
-           addSubview(lowTempLabel)
-           lowTempLabel.translatesAutoresizingMaskIntoConstraints = false
-           
-           NSLayoutConstraint.activate([
-           
-           
-           ])
-       }
+        addSubview(lowTempLabel)
+        lowTempLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            lowTempLabel.topAnchor.constraint(equalTo: highTempLabel.bottomAnchor, constant: 8),
+            lowTempLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            lowTempLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+        ])
+    }
     
     private func setUpSunriseLabel() {
         addSubview(sunriseLabel)
         sunriseLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        
-        
+            sunriseLabel.topAnchor.constraint(equalTo: lowTempLabel.bottomAnchor, constant: 8),
+            sunriseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            sunriseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
         ])
     }
     
@@ -183,8 +187,11 @@ class DetailedView: UIView {
         sunsetLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        
-        
+            sunsetLabel.topAnchor.constraint(equalTo: sunriseLabel.bottomAnchor, constant: 8),
+            sunsetLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            sunsetLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            
         ])
     }
     
@@ -193,18 +200,22 @@ class DetailedView: UIView {
         windSpeedLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        
-        
+            windSpeedLabel.topAnchor.constraint(equalTo: sunsetLabel.bottomAnchor, constant: 8),
+            windSpeedLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            windSpeedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
         ])
     }
     
     private func setUpPrecipitationLabel() {
-       addSubview(precipitationLabel)
+        addSubview(precipitationLabel)
         precipitationLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        
-        
+            precipitationLabel.topAnchor.constraint(equalTo: windSpeedLabel.bottomAnchor, constant: 8),
+            precipitationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            precipitationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
         ])
     }
 }

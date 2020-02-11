@@ -15,17 +15,9 @@ struct FavoritedPictures: Codable & Equatable {
 }
 
 struct Hit: Codable & Equatable {
-    let largeImageURL: String?
+    let largeImageURL: String
 }
 
-struct Image: Codable & Equatable {
-let url: String
 
-static func getRandomImage(images: [Image]) -> Image? {
-    if let randomImage = images.randomElement() {
-        return randomImage
-    }
-    return nil
-}
-   
-}
+
+
