@@ -10,8 +10,6 @@ import UIKit
 //TODO: Change the label name to the appropriate zipcode
 class ViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     @IBOutlet weak var weatherForZipCodeLabel: UILabel!
     @IBOutlet weak var zipcodeTextField: UITextField!
@@ -87,7 +85,7 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         loadCoordinatesByZipCode(zipCode: textField.text ?? "11204")
-        //UserPreference.shared.store(searchString: textField.text ?? "11001")
+        //TODO:UserPreference.shared.store(searchString: textField.text ?? "11001")
         //this gets rid of the keyboard when done
         textField.resignFirstResponder()
         return true

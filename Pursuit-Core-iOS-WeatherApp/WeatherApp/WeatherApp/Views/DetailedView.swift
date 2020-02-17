@@ -10,9 +10,7 @@ import UIKit
 
 class DetailedView: UIView {
     
-    //TODO: Set up constraints,
-    //TODO: find out what image to put in
-    //TODO: how to get the detailed info in the labels and image
+    //TODO: how to get the detailed info in the labels
     
     public lazy var currentWeatherLabel: UILabel = {
         let label = UILabel()
@@ -24,7 +22,6 @@ class DetailedView: UIView {
     public lazy var cityImageView: UIImageView = {
         let cityImage = UIImageView()
         cityImage.backgroundColor = .systemPink
-        // cityImage.image = UIImage(named: "")//TODO: call this in the view controller with the instance
         return cityImage
     }()
     
@@ -51,28 +48,28 @@ class DetailedView: UIView {
     
     public lazy var sunriseLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemTeal
+        label.backgroundColor = .systemPink
         //label.text
         return label
     }()
     
     public lazy var sunsetLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemPink
+        label.backgroundColor = .systemTeal
         //label.text
         return label
     }()
     
     public lazy var windSpeedLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemTeal
+        label.backgroundColor = .systemPink
         //label.text
         return label
     }()
     
     public lazy var precipitationLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemPink
+        label.backgroundColor = .systemTeal
         //label.text
         return label
     }()
@@ -111,8 +108,6 @@ class DetailedView: UIView {
             currentWeatherLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             currentWeatherLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             currentWeatherLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-            
-            
         ])
         
     }
@@ -125,9 +120,7 @@ class DetailedView: UIView {
             cityImageView.topAnchor.constraint(equalTo: currentWeatherLabel.bottomAnchor, constant: 20),
             cityImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             cityImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            cityImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3),
-//            cityImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9)
-            
+            cityImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3)
         ])
     }
     
@@ -163,10 +156,10 @@ class DetailedView: UIView {
         lowTempLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            lowTempLabel.topAnchor.constraint(equalTo: highTempLabel.bottomAnchor, constant: 8),
+            lowTempLabel.topAnchor.constraint(equalTo: highTempLabel.bottomAnchor, constant: 20),
             lowTempLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             lowTempLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
+            lowTempLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
         ])
     }
     
@@ -175,10 +168,10 @@ class DetailedView: UIView {
         sunriseLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            sunriseLabel.topAnchor.constraint(equalTo: lowTempLabel.bottomAnchor, constant: 8),
+            sunriseLabel.topAnchor.constraint(equalTo: lowTempLabel.bottomAnchor, constant: 20),
             sunriseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             sunriseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
+            sunriseLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
         ])
     }
     
@@ -187,11 +180,10 @@ class DetailedView: UIView {
         sunsetLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            sunsetLabel.topAnchor.constraint(equalTo: sunriseLabel.bottomAnchor, constant: 8),
+            sunsetLabel.topAnchor.constraint(equalTo: sunriseLabel.bottomAnchor, constant: 20),
             sunsetLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             sunsetLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            
+            sunsetLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
         ])
     }
     
@@ -200,10 +192,10 @@ class DetailedView: UIView {
         windSpeedLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            windSpeedLabel.topAnchor.constraint(equalTo: sunsetLabel.bottomAnchor, constant: 8),
+            windSpeedLabel.topAnchor.constraint(equalTo: sunsetLabel.bottomAnchor, constant: 20),
             windSpeedLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             windSpeedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
+            windSpeedLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
         ])
     }
     
@@ -212,10 +204,10 @@ class DetailedView: UIView {
         precipitationLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            precipitationLabel.topAnchor.constraint(equalTo: windSpeedLabel.bottomAnchor, constant: 8),
+            precipitationLabel.topAnchor.constraint(equalTo: windSpeedLabel.bottomAnchor, constant: 20),
             precipitationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             precipitationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
+            precipitationLabel.heightAnchor.constraint(equalTo: currentWeatherLabel.heightAnchor)
         ])
     }
 }

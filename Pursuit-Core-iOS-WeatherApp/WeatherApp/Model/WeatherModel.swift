@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-// MARK: - Weather
+//TODO: Fix the currently weather
 struct Weather: Codable {
     let latitude, longitude: Double
     let timezone: String
@@ -16,13 +15,13 @@ struct Weather: Codable {
     let daily: Daily
 }
 
-// MARK: - Daily
+
 struct Daily: Codable {
     let summary, icon: String
     let data: [DailyDatum]
 }
 
-// MARK: - DailyDatum
+
 struct DailyDatum: Codable {
     let time: Int
     let summary, icon: String

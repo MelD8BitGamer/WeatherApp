@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D3B122023FA19AB00B8A2AB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B121F23FA19AB00B8A2AB /* FavoritesView.swift */; };
+		4D3B122223FA1A0100B8A2AB /* FavoritesViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B122123FA1A0100B8A2AB /* FavoritesViewCollectionCell.swift */; };
+		4D3B122423FA286700B8A2AB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B122323FA286700B8A2AB /* EmptyView.swift */; };
 		4D5AF32E23EA288F0021E256 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AF32D23EA288F0021E256 /* NetworkHelper.swift */; };
 		4D5AF33023EA28B70021E256 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AF32F23EA28B70021E256 /* AppError.swift */; };
 		4D5AF33323EA29240021E256 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AF33223EA29240021E256 /* DataPersistence.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D3B121F23FA19AB00B8A2AB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		4D3B122123FA1A0100B8A2AB /* FavoritesViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewCollectionCell.swift; sourceTree = "<group>"; };
+		4D3B122323FA286700B8A2AB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyView.swift; path = WeatherApp/Controllers/EmptyView.swift; sourceTree = SOURCE_ROOT; };
 		4D5AF32D23EA288F0021E256 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		4D5AF32F23EA28B70021E256 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		4D5AF33223EA29240021E256 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
@@ -144,7 +150,10 @@
 		4DD0556123E8BB3A0000FAAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D3B122323FA286700B8A2AB /* EmptyView.swift */,
 				4DD0555F23E8BB330000FAAC /* WeatherCollectonCellCollectionViewCell.swift */,
+				4D3B121F23FA19AB00B8A2AB /* FavoritesView.swift */,
+				4D3B122123FA1A0100B8A2AB /* FavoritesViewCollectionCell.swift */,
 				4D5AF34123EB2EDB0021E256 /* DetailedView.swift */,
 			);
 			path = Views;
@@ -261,6 +270,7 @@
 				4DD0556023E8BB330000FAAC /* WeatherCollectonCellCollectionViewCell.swift in Sources */,
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				4D5AF32E23EA288F0021E256 /* NetworkHelper.swift in Sources */,
+				4D3B122223FA1A0100B8A2AB /* FavoritesViewCollectionCell.swift in Sources */,
 				4D5AF3C223EE19F40021E256 /* ImageAPIClient.swift in Sources */,
 				4D5AF33323EA29240021E256 /* DataPersistence.swift in Sources */,
 				4D5AF33C23EA34CE0021E256 /* UserDefaults.swift in Sources */,
@@ -271,6 +281,7 @@
 				4DD054EA23E86CE20000FAAC /* WeatherModel.swift in Sources */,
 				4D5AF33E23EA3BE20021E256 /* AlertExtension.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
+				4D3B122423FA286700B8A2AB /* EmptyView.swift in Sources */,
 				4D5AF34223EB2EDB0021E256 /* DetailedView.swift in Sources */,
 				4D5AF33A23EA2B040021E256 /* APIClient.swift in Sources */,
 				4D5AF33523EA29530021E256 /* FileManager.swift in Sources */,
@@ -278,6 +289,7 @@
 				4D5AF33823EA29D20021E256 /* ImageKit.swift in Sources */,
 				4DDF714823EF8CC4001C156C /* SavePhoto.swift in Sources */,
 				4D5AF33023EA28B70021E256 /* AppError.swift in Sources */,
+				4D3B122023FA19AB00B8A2AB /* FavoritesView.swift in Sources */,
 				4DD054E523E863BE0000FAAC /* FavoritesViewController.swift in Sources */,
 				4D5AF3C023EE186A0021E256 /* PhotoModel.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
